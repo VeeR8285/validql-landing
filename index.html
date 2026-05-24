@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValidQL | Deterministic LLM-to-SQL Guardrail Middleware</title>
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-purple: #a855f7;
+            --accent-green: #22c55e;
+        }
 
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        /* Top Announcement Ribbon */
+        .launch-ribbon {
+            background: linear-gradient(90deg, #1e40af, #6b21a8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .launch-ribbon span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Navbar Layout */
+        .navbar {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero Wrapper */
+        .hero {
+            max-width: 800px;
+            margin: 80px auto 40px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 60%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin: 0 auto 32px auto;
+            max-width: 600px;
+        }
+
+        /* Waitlist Email Capture Form */
+        .waitlist-form {
+            display: flex;
+            max-width: 480px;
+            margin: 0 auto;
+            gap: 10px;
+            background: rgba(30, 41, 59, 0.5);
+            padding: 6px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .waitlist-form input[type="email"] {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .waitlist-form button {
+            background: var(--accent-blue);
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .waitlist-form button:hover {
+            opacity: 0.9;
+        }
+
+        /* Feature Matrix Grid Section */
+        .features-grid {
+            max-width: 1100px;
+            margin: 80px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 8px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: #475569;
+        }
+
+        .card-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Blockquote Callout section */
+        .quote-banner {
+            max-width: 1100px;
+            margin: 40px auto 80px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        blockquote {
+            background: linear-gradient(135deg, rgba(30,41,59,0.4), rgba(15,23,42,0.8));
+            border-left: 4px solid var(--accent-blue);
+            margin: 0;
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Launching Soon Ribbon Alert -->
+    <div class="launch-ribbon">
+        <span>Project Status</span> ValidQL Engine Beta Launching Soon Q3 2026. Secure your slot on the early access queue.
+    </div>
+
+    <!-- Minimal Header Navigation -->
+    <nav class="navbar">
+        <div class="logo">🛡️ ValidQL</div>
+        <div style="font-size: 13px; color: var(--text-muted); font-family: monospace;">v1.0.0-beta</div>
+    </nav>
+
+    <!-- Hero Content Action Area -->
+    <section class="hero">
+        <h2>Stop AI Agents From Destroying Your Production Database</h2>
+        <p>ValidQL is a deterministic middleware guardrail layer that parses, cross-checks, and self-heals LLM-generated SQL strings before execution.</p>
+        
+        <!-- Waitlist Form (Can link straight to Formspree, Formspark or a mini backend later) -->
+        <form class="waitlist-form" onsubmit="alert('Thank you for joining the ValidQL waitlist!'); return false;">
+            <input type="email" placeholder="Enter your corporate email address" required>
+            <button type="submit">Join Waitlist</button>
+        </form>
+    </section>
+
+    <!-- Architecture Core Pillars Grid -->
+    <main class="features-grid">
+        <div class="card">
+            <div class="card-icon" style="color: var(--accent-purple);">🌳</div>
+            <h3>AST Structural Safety</h3>
+            <p>Compiles query text arrays into an Abstract Syntax Tree (AST) to securely isolate and terminate unauthorized destructive keywords before execution blocks form.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon" style="color: var(--accent-green);">🔄</div>
+            <h3>Automated Self-Healing</h3>
+            <p>Intercepts runtime schema mismatches and hallucinations, routing descriptive error patches back to the model for background query correction within milliseconds.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon" style="color: var(--accent-blue);">🛡️</div>
+            <h3>Role-Based Access Guard</h3>
+            <p>Applies strict data visibility schema filters to incoming client operations, blocking high-risk data leakage vulnerabilities automatically.</p>
+        </div>
+    </main>
+
+    <!-- Industry Context Callout Section -->
+    <div class="quote-banner">
+        <blockquote>
+            <strong>Why a deterministic guardrail matters:</strong> LLM agents are non-deterministic; they make logic mistakes and guess columns. When an LLM connects to a live database, those mistakes lead to expensive data breaches or broken architectures. ValidQL adds a strict, rule-based firewall protection layer to guarantee operational compliance.
+        </blockquote>
+    </div>
+
+    <!-- Footer Area -->
+    <footer>
+        &copy; 2026 ValidQL. Built for secure enterprise agentic middleware integrations.
+    </footer>
+
+</body>
+</html>
