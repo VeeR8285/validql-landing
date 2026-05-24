@@ -89,41 +89,53 @@
             max-width: 600px;
         }
 
-        /* Waitlist Email Capture Form */
-        .waitlist-form {
+        /* Contact Section */
+        .contact-container {
             display: flex;
-            max-width: 480px;
-            margin: 0 auto;
-            gap: 10px;
-            background: rgba(30, 41, 59, 0.5);
-            padding: 6px;
-            border-radius: 8px;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Dynamic Contact Links */
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-        }
-
-        .waitlist-form input[type="email"] {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 12px;
-            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: var(--text-main);
+            text-decoration: none;
             font-size: 14px;
-            outline: none;
+            font-weight: 500;
+            transition: border-color 0.2s, background-color 0.2s;
         }
 
-        .waitlist-form button {
-            background: var(--accent-blue);
-            color: #fff;
-            border: none;
-            padding: 0 20px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.2s;
+        .contact-badge:hover {
+            border-color: var(--accent-blue);
+            background-color: #151f32;
         }
 
-        .waitlist-form button:hover {
-            opacity: 0.9;
+        .contact-badge.linkedin-badge:hover {
+            border-color: #0077b5;
+        }
+
+        .contact-badge .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+
+        /* SVG Logos */
+        .badge-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
         /* Feature Matrix Grid Section */
@@ -190,6 +202,18 @@
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
         }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        footer .social-footer {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
     </style>
 </head>
 <body>
@@ -210,8 +234,23 @@
         <h2>Stop AI Agents From Destroying Your Production Database</h2>
         <p>ValidQL is a deterministic middleware guardrail layer that parses, cross-checks, and self-heals LLM-generated SQL strings before execution.</p>
         
-        <!-- Waitlist Form (Can link straight to Formspree, Formspark or a mini backend later) -->
-        
+        <!-- Contact Badges Stack -->
+        <div class="contact-container">
+            <!-- Email Badge -->
+            <a href="mailto:virendrasolanke28@gmail.com" class="contact-badge">
+                <span class="dot"></span>
+                <span>virendrasolanke28@gmail.com</span>
+            </a>
+            
+            <!-- LinkedIn Badge -->
+            <a href="https://www.linkedin.com/in/virendra-solanke-33192291/" target="_blank" rel="noopener noreferrer" class="contact-badge linkedin-badge">
+                <!-- Inline LinkedIn SVG vector icon -->
+                <svg class="badge-icon" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                <span>Connect on LinkedIn</span>
+            </a>
+        </div>
     </section>
 
     <!-- Architecture Core Pillars Grid -->
@@ -242,7 +281,11 @@
 
     <!-- Footer Area -->
     <footer>
-        &copy; 2026 ValidQL. Built for secure enterprise agentic middleware integrations.
+        <div>&copy; 2026 ValidQL. Built for secure enterprise agentic middleware integrations.</div>
+        <div class="social-footer">
+            <a href="mailto:virendrasolanke28@gmail.com">Email Inquiries</a> &bull; 
+            <a href="https://www.linkedin.com/in/virendra-solanke-33192291/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        </div>
     </footer>
 
 </body>
